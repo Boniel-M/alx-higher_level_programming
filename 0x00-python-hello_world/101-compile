@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import os
+import py_compile
+
+# Check if PYFILE environment variable is set
+
+pyfile = os.getenv('PYFILE')
+if not pyfile:
+    print("Error: PYFILE environment variable not set")
+    exit(1)
+
+# Compile the Python script
+output_file = pyfile + 'c'
+print(f"Compiling {pyfile} ...")
+try:
+    py_compile.compile(pyfile, output_file)
+    print("Compilation successful")
+except py_compile.PyCompileError as e:
+    print("Compilation failed")
+    print(str(e))
+    exit(1)
+
