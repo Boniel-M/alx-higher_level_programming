@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the Python file name from the environment variable
-python_file="$PYFILE"
+py_file=$PYFILE
 
 # Run the Python script
-python3 "$python_file"
+python3 "$py_file"
