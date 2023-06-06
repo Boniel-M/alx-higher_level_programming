@@ -5,5 +5,5 @@ if number < 0:
     print(number, end=" is positive\n")
 elif number == 0:
     print(number, end= " is zero\n")
-else:
+else: 
     print(number, end=" is negative\n")
