@@ -8,7 +8,7 @@ echo "Compiling $filename ..."
 python -m py_compile $filename
 
 if [ -f "$output_filename" ]; then
-    echo "Compilation successful!"
+	echo "Compilation successful!"
 else
-    echo "Compilation failed."
+	echo "Compilation failed."
 fi
