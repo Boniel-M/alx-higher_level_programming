@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def fizzbuzz():
     output = []
     for i in range(1, 101):
