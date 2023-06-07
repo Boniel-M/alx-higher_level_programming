@@ -1,3 +1,16 @@
-
 #!/bin/bash
-python3 "$PYFILE" | head -n 1
+
+# Check if the PYFILE environment variable is set
+if [ -z "$PYFILE" ]; then
+  echo "PYFILE environment variable is not set."
+  exit 1
+fi
+
+# Check if the Python script exists
+if [ ! -f "$PYFILE" ]; then
+  echo "Python script '$PYFILE' not found."
+  exit 1
+fi
+
+# Run the Python script
+python3 "$PYFILE"
