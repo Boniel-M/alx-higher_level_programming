@@ -6,4 +6,4 @@ b = 2
 
 sum = Boniel.add(a, b)
 
-print("{} + {} = {}".format(a, b, sum))
+print("{} + {} = {}".format(a, b, sum), end="")
