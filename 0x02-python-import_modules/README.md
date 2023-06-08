@@ -1,5 +1,5 @@
 #Python - import & modules
 #		Python
-#		code written by:
-				Boniel-M
-				bonielwanjohi@gmail.com
+		code written and mananged by:
+						Boniel-M
+						bonielwanjohi@gmail.com
