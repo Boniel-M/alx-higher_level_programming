@@ -10,7 +10,7 @@ if __name__ == "__main__":
             arg_word = "argument:"
         else:
             arg_word = "arguments:"
-        print(f"{arg_count} {argument_word}")
+        print(f"{arg_count} {arg_word}")
 
         for a in range(1, len(argv)):
             print("{}: {}".format(a, argv[a]))
