@@ -12,12 +12,11 @@ def add(a, b):
     return (a + b)
 
 """program that imports the function def add(a, b): from the file add_0.py"""
-if __name__ == "__main__":
-
+from add_0 import add as Boniel
     a = 1
     b = 2
 
-    sum = add(a, b)
+    sum = Boniel(a, b)
 
     print("{} + {} = {}".format(a, b, sum))
     print("", end="")
