@@ -7,9 +7,9 @@ if __name__ == "__main__":
         print("0 arguments.")
     else:
         if arg_count == 1:
-            argument_word = "argument:"
+            arg_word = "argument:"
         else:
-            argument_word = "arguments:"
+            arg_word = "arguments:"
         print(f"{arg_count} {argument_word}")
 
         for a in range(1, len(argv)):
