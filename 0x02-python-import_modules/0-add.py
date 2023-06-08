@@ -1,8 +1,16 @@
 #!/usr/bin/python3
 
-"""program that imports the function def add(a, b): from the file add_0.py"""
+def add(a, b):
+    """My addition function
 
-from add_0 import add
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a + b
+    """
+    return (a + b)
 
 a = 1
 b = 2
@@ -11,6 +19,3 @@ sum = add(a, b)
 
 print("{} + {} = {}".format(a, b, sum))
 print("", end="")
-
-if __name__ == "__main__":
-    add(a, b)
