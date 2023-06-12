@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-if __name__ == '__main__':
 
-def print_reversed_list_integer(my_list=[]):
+def print_reversed_list_integer(my_list=None):
+    if my_list is None:
+        my_list = []
     i = len(my_list) - 1
     while i >= 0:
         print("{:d}".format(my_list[i]))
