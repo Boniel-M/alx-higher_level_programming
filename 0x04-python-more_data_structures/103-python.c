@@ -1,10 +1,6 @@
 #include <Python.h>
 #include <stdio.h>
 
-/**
- * print_python_list - Prints information about a Python list object
- * @p: Pointer to the Python list object
- */
 void print_python_list(PyObject *p) {
 	Py_ssize_t size, i;
 	PyObject *item;
@@ -20,10 +16,6 @@ void print_python_list(PyObject *p) {
 	}
 }
 
-/**
- * print_python_bytes - Prints information about a Python bytes object
- * @p: Pointer to the Python bytes object
- */
 void print_python_bytes(PyObject *p) {
 	Py_ssize_t size, i;
 	char *str;
@@ -50,4 +42,5 @@ void print_python_bytes(PyObject *p) {
 	}
 	printf("\n");
 }
+
 
