@@ -2,52 +2,55 @@
 #include <stdio.h>
 
 /**
- * print_python_list - Prints information about a Python list object
- * @p: Pointer to the Python list object
+ * print_python_list - Prints basic info about Python lists
+ * @p: Pointer to the Python object
  */
-void print_python_list(PyObject *p) {
+void print_python_list(PyObject *p)
+{
 	Py_ssize_t size, i;
 	PyObject *item;
 
+	size = PyList_Size(p);  /* Get the size of the list */
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %ld\n", PyList_Size(p));
+	printf("[*] Size of the Python List = %ld\n", size);
+
 	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
-	size = PyList_Size(p);
-	for (i = 0; i < size; i++) {
-		item = PyList_GetItem(p, i);
+	for (i = 0; i < size; i++)
+	{
+		item = PyList_GetItem(p, i);  /* Get the item at index i */
 		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
 	}
 }
 
 /**
- * print_python_bytes - Prints information about a Python bytes object
- * @p: Pointer to the Python bytes object
+ * print_python_bytes - Prints basic info about Python bytes objects
+ * @p: Pointer to the Python object
  */
-void print_python_bytes(PyObject *p) {
+void print_python_bytes(PyObject *p)
+{
 	Py_ssize_t size, i;
-	char *str;
+	char *data;
 
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p)) {
+	if (!PyBytes_Check(p))
+	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
-	printf("  [.] Size: %ld\n", PyBytes_Size(p));
-	printf("  [.] Trying string: %s\n", PyBytes_AsString(p));
+	size = PyBytes_Size(p);  /* Get the size of the bytes object */
+	data = PyBytes_AsString(p);  /* Get a pointer to the data */
 
-	size = PyBytes_Size(p);
+	printf("  size: %ld\n", size);
+	printf("  trying string: %s\n", data);
+
 	if (size > 10)
-		size = 10;
+		size = 10;  /* Limit printing to first 10 bytes */
 
-	printf("  [.] first %ld bytes: ", size);
-	str = PyBytes_AsString(p);
-	for (i = 0; i < size; i++) {
-		printf("%02x", (unsigned char)str[i]);
-		if (i != size - 1)
-			printf(" ");
-	}
+	printf("  first %ld bytes:", size);
+	for (i = 0; i < size; i++)
+		printf(" %02x", (unsigned char)data[i]);
 	printf("\n");
 }
 
