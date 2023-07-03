@@ -7,7 +7,7 @@ A class representing a rectangle.
 
 class Rectangle:
     """
-    Rectangle class defines a rectangle by its width and height.
+    Rectangle class that defines a rectangle by its width and height.
     """
 
     def __init__(self, width=0, height=0):
@@ -15,8 +15,8 @@ class Rectangle:
         Initializes a Rectangle instance.
 
         Args:
-            width (int): The width of the rectangle. Default is 0.
-            height (int): The height of the rectangle. Default is 0.
+            width (int): The width of the rectangle. Defaults to 0.
+            height (int): The height of the rectangle. Defaults to 0.
         """
         self.width = width
         self.height = height
@@ -24,7 +24,7 @@ class Rectangle:
     @property
     def width(self):
         """
-        Getter method for the width attribute.
+        Getter method for retrieving the width of the rectangle.
 
         Returns:
             int: The width of the rectangle.
@@ -34,7 +34,7 @@ class Rectangle:
     @width.setter
     def width(self, value):
         """
-        Setter method for the width attribute.
+        Setter method for setting the width of the rectangle.
 
         Args:
             value (int): The width value to set.
@@ -52,7 +52,7 @@ class Rectangle:
     @property
     def height(self):
         """
-        Getter method for the height attribute.
+        Getter method for retrieving the height of the rectangle.
 
         Returns:
             int: The height of the rectangle.
@@ -62,7 +62,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """
-        Setter method for the height attribute.
+        Setter method for setting the height of the rectangle.
 
         Args:
             value (int): The height value to set.
@@ -79,18 +79,18 @@ class Rectangle:
 
     def area(self):
         """
-        Calculates the area of the rectangle.
+        Calculates and returns the area of the rectangle.
 
         Returns:
             int: The area of the rectangle.
         """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """
-        Calculates the perimeter of the rectangle.
+        Calculates and returns the perimeter of the rectangle.
 
         Returns:
             int: The perimeter of the rectangle.
         """
-        return 2 * (self.width + self.height)
+        return 2 * (self.__width + self.__height)
