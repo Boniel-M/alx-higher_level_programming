@@ -7,7 +7,7 @@ A class representing a rectangle.
 
 class Rectangle:
     """
-    Rectangle class defines a rectangle by width and height.
+    Rectangle class defines a rectangle by its width and height.
     """
 
     def __init__(self, width=0, height=0):
@@ -15,8 +15,8 @@ class Rectangle:
         Initializes a Rectangle instance.
 
         Args:
-            width (int): Width of the rectangle. Default is 0.
-            height (int): Height of the rectangle. Default is 0.
+            width (int): The width of the rectangle. Default is 0.
+            height (int): The height of the rectangle. Default is 0.
         """
         self.width = width
         self.height = height
@@ -24,24 +24,24 @@ class Rectangle:
     @property
     def width(self):
         """
-        Retrieves the width of the rectangle.
+        Getter method for the width attribute.
 
         Returns:
-            int: Width of the rectangle.
+            int: The width of the rectangle.
         """
         return self.__width
 
     @width.setter
     def width(self, value):
         """
-        Sets the width of the rectangle.
+        Setter method for the width attribute.
 
         Args:
-            value (int): Width of the rectangle.
+            value (int): The width value to set.
 
         Raises:
-            TypeError: If width is not an integer.
-            ValueError: If width is less than 0.
+            TypeError: If the width is not an integer.
+            ValueError: If the width is less than 0.
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -52,24 +52,24 @@ class Rectangle:
     @property
     def height(self):
         """
-        Retrieves the height of the rectangle.
+        Getter method for the height attribute.
 
         Returns:
-            int: Height of the rectangle.
+            int: The height of the rectangle.
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        Sets the height of the rectangle.
+        Setter method for the height attribute.
 
         Args:
-            value (int): Height of the rectangle.
+            value (int): The height value to set.
 
         Raises:
-            TypeError: If height is not an integer.
-            ValueError: If height is less than 0.
+            TypeError: If the height is not an integer.
+            ValueError: If the height is less than 0.
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -82,41 +82,29 @@ class Rectangle:
         Calculates the area of the rectangle.
 
         Returns:
-            int: Area of the rectangle.
+            int: The area of the rectangle.
         """
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
         """
         Calculates the perimeter of the rectangle.
 
         Returns:
-            int: Perimeter of the rectangle.
+            int: The perimeter of the rectangle.
         """
-        if self.__width == 0 or self.__height == 0:
-            return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
         """
-        Returns a string representation of the rectangle.
+        Returns a string representation of the rectangle using '#'.
 
         Returns:
-            str: The rectangle represented using '#' characters.
+            str: The string representation of the rectangle.
         """
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return ""
-        rectangle_str = ""
-        for _ in range(self.__height):
-            rectangle_str += "#" * self.__width + "\n"
-        return rectangle_str[:-1]
-
-    def __repr__(self):
-        """
-        Returns a string representation of the rectangle.
-
-        Returns:
-            str: The rectangle representation formatted as
-                 '<ClassName>(width, height)'.
-        """
-        return "{}({}, {})".format(self.__class__.__name__, self.__width, self.__height)
+        rectangle_str = '#' * self.width + '\n'
+        rectangle_str *= self.height - 1
+        rectangle_str += '#' * self.width
+        return rectangle_str
