@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+A class representing a rectangle based on 0-rectangle.
+"""
+
 
 class Rectangle:
     """
