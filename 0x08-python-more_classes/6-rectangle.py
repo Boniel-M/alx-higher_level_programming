@@ -113,7 +113,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle that can be used with eval().
+        Returns a string representation of the rectangle
+        that can be used with eval().
 
         Returns:
             str: The string representation of the rectangle.
