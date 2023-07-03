@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
+
 """
-A class representing a rectangle based on 0-rectangle.
+A class representing a rectangle.
 """
 
 
