@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
+"""
+A emapty calss Rectangle
+    Rectangle that defines a rectangle
+    """
 
-"""A emapty calss rectangle"""
 
 class Rectangle:
     pass
