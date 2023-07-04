@@ -1,7 +1,14 @@
 #!/usr/bin/python3
 
+"""
+This module contains the LockedClass which prevents the user from dynamically
+creating new instance attributes, except for the `first_name` attribute.
+"""
+
+
 class LockedClass:
-    def __setattr__(self, attr, value):
-        if attr != "first_name":
-            raise AttributeError("'LockedClass' object has no attribute '{}'".format(attr))
-        super().__setattr__(attr, value)
+    """
+    LockedClass enforces restrictions on dynamically creating
+    new instance attributes.
+    """
+    __slots__ = ["first_name"]
