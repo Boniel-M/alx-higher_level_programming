@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Check if obj is instance of a_class
+"""
 
 
 
