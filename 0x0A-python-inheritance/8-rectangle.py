@@ -1,43 +1,15 @@
 #!/usr/bin/python3
 """
-Rectangle Module
+Module: 8-rectangle
 """
 
-
-class BaseGeometry:
-    """
-    BaseGeometry class
-    """
-
-    @staticmethod
-    def area():
-        """
-        Raises an Exception with the message area() is not implemented.
-        """
-        raise Exception("area() is not implemented")
-
-    @staticmethod
-    def integer_validator(name, value):
-        """
-        Validates the value if it's an integer and greater than 0.
-
-        Args:
-            name (str): The name of the value.
-            value (int): The value to be validated.
-
-        Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than or equal to 0.
-        """
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
     """
-    Rectangle class
+    Class that represents a rectangle.
+    Inherits from BaseGeometry.
     """
 
     def __init__(self, width, height):
@@ -47,9 +19,12 @@ class Rectangle(BaseGeometry):
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
+
+        Raises:
+            TypeError: If width or height is not an integer.
+            ValueError: If width or height is not a positive integer.
+
         """
-        self.__width = 0
-        self.__height = 0
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
@@ -57,9 +32,10 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """
-        Returns a string representation of the Rectangle instance.
+        Returns a string representation of the rectangle.
 
         Returns:
-            str: A string representation of the Rectangle instance.
+            str: The string representation of the rectangle.
+
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
