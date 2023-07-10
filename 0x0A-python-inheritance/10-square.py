@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 11-square
+Module: 10-square
 """
 
 Rectangle = __import__('9-rectangle').Rectangle
@@ -35,15 +35,7 @@ class Square(Rectangle):
             str: The string representation of the square.
 
         """
-        return "[Square] {}/{}".format(self._Rectangle__width,
-                                       self._Rectangle__height)
-
-    def area(self):
-        """
-        Calculates the area of the square.
-
-        Returns:
-            int: The area of the square.
-
-        """
-        return self._Rectangle__width * self._Rectangle__height
+        return "[Square] {}/{}".format(
+            self._Rectangle__width,
+            self._Rectangle__height
+        )
