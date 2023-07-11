@@ -5,62 +5,56 @@ a script that reads stdin line by line and computes metrics
 """
 
 import sys
+import signal
 from collections import defaultdict
 
+total_file_size = 0
+status_code_counts = defaultdict(int)
+line_count = 0
 
-def print_statistics(file_size, status_codes):
+
+def keyboard_interrupt_handler(signal, frame):
+    """Handler for keyboard interruption (CTRL+C).
     """
-    Print the computed statistics.
+    print_statistics()
+    sys.exit(0)
 
-    Args:
-        file_size (int): Total file size.
-        status_codes (dict): Number of lines by status code.
+
+def print_statistics():
+    """Prints the accumulated metrics.
     """
-    print("File size:", file_size)
-    for status_code in sorted(status_codes.keys()):
-        count = status_codes[status_code]
-        print(f"{status_code}: {count}")
+    print("Total file size:", total_file_size)
+    for status_code in sorted(status_code_counts):
+        count = status_code_counts[status_code]
+        print("{}: {}".format(status_code, count))
 
 
-def parse_line(line):
-    """
-    Parse a line and extract file size and status code.
+# Register the keyboard interruption handler
+signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 
-    Args:
-        line (str): The line to parse.
+try:
+    # Read input from stdin line by line
+    for line in sys.stdin:
+        # Parse the input line
+        parts = line.split()
+        if len(parts) != 7:
+            continue
 
-    Returns:
-        tuple: The file size and status code.
-    """
-    parts = line.split()
-    file_size = int(parts[-1])
-    status_code = int(parts[-2])
-    return file_size, status_code
+        status_code = parts[5]
+        file_size = int(parts[6])
 
+        # Update metrics
+        total_file_size += file_size
+        status_code_counts[status_code] += 1
+        line_count += 1
 
-def compute_metrics():
-    """
-    Read input from stdin, compute metrics, and print statistics.
-    """
-    file_size = 0
-    status_codes = defaultdict(int)
-    line_count = 0
+        # Check if it's time to print statistics
+        if line_count % 10 == 0:
+            print_statistics()
 
-    try:
-        for line in sys.stdin:
-            line = line.strip()
-            if line:
-                file_size_delta, status_code = parse_line(line)
-                file_size += file_size_delta
-                status_codes[status_code] += 1
-                line_count += 1
+    # Print the final statistics
+    print_statistics()
 
-                if line_count % 10 == 0:
-                    print_statistics(file_size, status_codes)
-
-    except KeyboardInterrupt:
-        print_statistics(file_size, status_codes)
-
-
-if __name__ == "__main__":
-    compute_metrics()
+except KeyboardInterrupt:
+    print_statistics()
+    raise
