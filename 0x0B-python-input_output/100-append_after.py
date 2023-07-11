@@ -8,12 +8,12 @@ after each line containing a specific string
 
 def append_after(filename="", search_string="", new_string=""):
     """
-    Insert a line of text to a file after each line containing a specific string.
+    Insert a line of text to a file after each line.
 
     Args:
         filename (str): The name of the file.
         search_string (str): The string to search for in each line.
-        new_string (str): The line of text to insert after each matching line.
+        new_string (str): The line of text to insert after each matching line
 
     Returns:
         None
