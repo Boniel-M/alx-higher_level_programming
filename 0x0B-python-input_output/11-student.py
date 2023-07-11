@@ -47,7 +47,7 @@ class Student:
         on the provided JSON dictionary.
 
         Args:
-            json (dict): A dictionary containing attribute names and values.
+            json (dict): A dictionary containing attribute names and values
 
         Returns:
             None
