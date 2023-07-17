@@ -69,7 +69,8 @@ class Base:
             **dictionary: Double pointer to a dictionary.
 
         Returns:
-            Base: An instance of the class with attributes set from the dictionary.
+            Base: An instance of the class with attributes set from the
+            dictionary.
         """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
@@ -94,7 +95,10 @@ class Base:
             with open(file_name, "r") as file:
                 json_string = file.read()
                 dictionaries = cls.from_json_string(json_string)
-                instances = [cls.create(**dictionary) for dictionary in dictionaries]
+                instances = [
+                        cls.create(**dictionary)
+                        for dictionary in dictionaries
+                        ]
                 return instances
         except FileNotFoundError:
             return []
