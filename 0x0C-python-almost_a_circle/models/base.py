@@ -1,29 +1,26 @@
 #!/usr/bin/python3
 
-"""Manage object ID assignment."""
+"""
+This module contains the base class for all other classes in the project.
+"""
 
 
 class Base:
     """
-    Base class to manage id attribute for all classes in the project.
+    Base class for managing the id attribute in all future classes.
     """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
         """
-        Initialize a Base object.
+        Initializes an instance of the Base class.
 
         Args:
-            id (int, optional): ID value to assign to the object.
-            Defaults to None.
+            id (int): Optional id for the instance.
 
-        Notes:
-            - If `id` is provided, assign it to the
-            public instance attribute `id`.
-            - If `id` is not provided, increment the
-            private class attribute `__nb_objects`
-              and assign its new value to the public instance attribute `id`.
+        Attributes:
+            id (int): Public instance attribute representing the id.
         """
         if id is not None:
             self.id = id
