@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+module with calss Base
+"""
 
 
 import json
