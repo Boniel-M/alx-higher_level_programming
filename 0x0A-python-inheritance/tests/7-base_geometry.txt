@@ -1,5 +1,0 @@
-python3 -c 'print(__import__("base_geometry").__doc__)'
-python3 -c 'print(__import__("base_geometry").BaseGeometry.__doc__)'
-python3 -c 'print(__import__("base_geometry").BaseGeometry.integer_validator.__doc__)'
-
-python3 -m doctest ./base_geometry.py
