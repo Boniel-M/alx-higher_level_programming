@@ -20,7 +20,7 @@ class Rectangle:
 
         Args:
             width (int, optional): The width of the rectangle (default is 0).
-            height (int, optional): The height of the rectangle (default is 0).
+            height (int, optional): The height of the rectangle (default is 0)
         """
         self.width = width
         self.height = height
@@ -117,6 +117,6 @@ class Rectangle:
         Return a string representation that can recreate a new instance.
 
         Returns:
-            str: A string representation to recreate the rectangle using eval().
+            str: A string representation to recreate the rectangle using eval
         """
         return f"Rectangle({self.__width}, {self.__height})"
