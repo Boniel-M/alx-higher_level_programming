@@ -2,6 +2,7 @@
 
 """A class Rectangle module"""
 
+
 class Rectangle:
-	"""A class Rectangle"""
-	pass
+    """A class Rectangle"""
+        pass
