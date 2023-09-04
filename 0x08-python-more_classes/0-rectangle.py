@@ -5,4 +5,4 @@
 
 class Rectangle:
     """A class Rectangle"""
-        pass
+    pass
