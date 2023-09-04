@@ -21,11 +21,12 @@ class Rectangle:
         Initializes a new Rectangle instance.
 
         Args:
-            width (int, optional): The width of the rectangle (default is 0)
+            width (int, optional): The width of the rectangle (default is 0).
             height (int, optional): The height of the rectangle (default is 0).
         """
         self.width = width
         self.height = height
+        self.print_symbol = '#'  # Instance attribute for print representation
         Rectangle.number_of_instances += 1  # Increment instance count
 
     @property
@@ -109,18 +110,19 @@ class Rectangle:
         Return a string representation of the rectangle.
 
         Returns:
-            str: The string representation of the rectangle.
+            str: The string representation of the rectangle
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return '\n'.join(['#' * self.__width for _ in range(self.__height)])
+        symbol_row = str(self.print_symbol) * self.__width
+        return '\n'.join([symbol_row for _ in range(self.__height)])
 
     def __repr__(self):
         """
         Return a string representation that can recreate a new instance.
 
         Returns:
-            str: A string representation to recreate the rectangle using eval().
+            str: A string representation to recreate the rectangle using eval.
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
