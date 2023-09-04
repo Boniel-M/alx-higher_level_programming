@@ -144,7 +144,7 @@ class Rectangle:
             rect_2 (Rectangle): The second rectangle to compare.
 
         Raises:
-            TypeError: If either rect_1 or rect_2 is not an instance of Rectangle.
+            TypeError: If either rect_1 or rect_2 is not an instance
 
         Returns:
             Rectangle: The bigger or equal rectangle.
