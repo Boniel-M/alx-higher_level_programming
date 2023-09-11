@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+Look up module
+"""
+
+
 def lookup(obj):
     """
     Get a list of available attributes and methods of an object.
