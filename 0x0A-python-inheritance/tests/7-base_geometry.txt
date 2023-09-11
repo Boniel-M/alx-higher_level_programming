@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""
+Unittests for BaseGeometry class.
+"""
+
+import doctest
+from models.base import BaseGeometry
+
+if __name__ == "__main__":
+    doctest.testmod(BaseGeometry)
