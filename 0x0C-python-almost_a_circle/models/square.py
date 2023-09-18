@@ -51,23 +51,16 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
+    def to_dictionary(self):
         """
-        Update the attributes of the Square instance with provided argument
-        in the following order:
-        1st argument: id attribute
-        2nd argument: size attribute
-        3rd argument: x attribute
-        4th argument: y attribute
+        Returns a dictionary representation of the Square instance.
 
-        Args:
-            *args: The values to update the attributes with.
-            **kwargs: The key-value pairs to update the attributes with.
+        Returns:
+            dict: A dictionary containing the attributes of the Square.
         """
-        if args:
-            arg_names = ['id', 'size', 'x', 'y']
-            for i, arg in enumerate(args):
-                setattr(self, arg_names[i], arg)
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
