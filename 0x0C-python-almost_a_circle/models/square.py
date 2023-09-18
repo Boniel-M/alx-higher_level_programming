@@ -24,8 +24,8 @@ class Square(Rectangle):
             id (int, optional): The ID of the square (default is None).
 
         Raises:
-            TypeError: If any of the arguments (size, x, or y) is not an int
-            ValueError: If size is not greater than 0, or if x or y is < 0
+            TypeError: If any of the arguments (size, x, or y) is not an int.
+            ValueError: If size is not greater than 0, or if x or y is < 0.
         """
         super().__init__(size, size, x, y, id)
 
@@ -51,12 +51,23 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def __str__(self):
+    def update(self, *args, **kwargs):
         """
-        Return a formatted string representation of the Square.
+        Update the attributes of the Square instance with provided argument
+        in the following order:
+        1st argument: id attribute
+        2nd argument: size attribute
+        3rd argument: x attribute
+        4th argument: y attribute
 
-        Returns:
-            str: A formatted string representing the Square.
+        Args:
+            *args: The values to update the attributes with.
+            **kwargs: The key-value pairs to update the attributes with.
         """
-        return "[Square] ({}) {}/{} - {}".format(
-                self.id, self.x, self.y, self.width)
+        if args:
+            arg_names = ['id', 'size', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, arg_names[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
