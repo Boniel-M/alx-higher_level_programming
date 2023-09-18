@@ -7,8 +7,8 @@ from models.base import Base
 
 class Rectangle(Base):
     """
-    Rectangle class inherits from Base and represents a rectangle with width,
-    height, position (x, y), and an ID.
+    Rectangle class inherits from Base and represents a rectangle with
+    width, height, position (x, y), and an ID.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -24,10 +24,10 @@ class Rectangle(Base):
             id (int, optional): The ID of the rectangle (default is None).
 
         Raises:
-            TypeError: If any of the arguments (width, height, x, or y)
-            is not an integer.
+            TypeError: If any of the arguments (width, height, x,
+            or y) is not an integer.
             ValueError: If width or height is not greater than 0,
-            or if x or y is less than 0
+            or if x or y is less than 0.
         """
         super().__init__(id)
 
@@ -135,3 +135,12 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """
+        Calculate and return the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.__width * self.__height
