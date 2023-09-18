@@ -51,7 +51,7 @@ class Base:
             list_objs (list): A list of instances to be saved to a file.
 
         Raises:
-            TypeError: If list_objs is not a list of instances derived
+            TypeError: If list_objs is not a list of instances derived Base.
         """
         if list_objs is None:
             list_objs = []
@@ -84,7 +84,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Create and return an instance with attributes set based on a dictionar
+        Create and return an instance with attributes set based on dictionary
 
         Args:
             **dictionary (dict): A dictionary containing attribute values.
@@ -99,3 +99,21 @@ class Base:
 
         dummy_instance.update(**dictionary)
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Load and return a list of instances from a JSON file.
+
+        Returns:
+            list: A list of instances loaded from the JSON file.
+        """
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, mode="r", encoding="utf-8") as file:
+                json_str = file.read()
+                obj_dicts = cls.from_json_string(json_str)
+                return [cls.create(**d) for d in obj_dicts]
+        except FileNotFoundError:
+            return []
