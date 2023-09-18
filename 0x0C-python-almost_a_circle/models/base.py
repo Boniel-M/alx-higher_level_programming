@@ -51,7 +51,7 @@ class Base:
             list_objs (list): A list of instances to be saved to a file.
 
         Raises:
-            TypeError: If list_objs is not a list of instances derived Base
+            TypeError: If list_objs is not a list of instances derived Base.
         """
         if list_objs is None:
             list_objs = []
@@ -64,3 +64,19 @@ class Base:
 
         with open(filename, mode="w", encoding="utf-8") as file:
             file.write(cls.to_json_string(instance_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Parse a JSON string and return a list of dictionaries.
+
+        Args:
+            json_string (str): The JSON string to be parsed.
+
+        Returns:
+            list: A list of dictionaries represented by json_string.
+        """
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
