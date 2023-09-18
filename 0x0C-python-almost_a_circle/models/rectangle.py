@@ -7,8 +7,8 @@ from models.base import Base
 
 class Rectangle(Base):
     """
-    Rectangle class inherits from Base and represents a rectangle with
-    width, height, position (x, y), and an ID.
+    Rectangle class inherits from Base and represents a rectangle with width,
+    height, position (x, y), and an ID.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -19,15 +19,16 @@ class Rectangle(Base):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
             x (int, optional): The x-coordinate of the rectangle's position
-            (default is 0).
+                (default is 0).
             y (int, optional): The y-coordinate of the rectangle's position
+                (default is 0).
             id (int, optional): The ID of the rectangle (default is None).
 
         Raises:
-            TypeError: If any of the arguments (width, height, x,
-            or y) is not an integer.
-            ValueError: If width or height is not greater than 0,
-            or if x or y is less than 0.
+            TypeError: If any of the arguments (width, height, x, or y) is not
+                an integer.
+            ValueError: If width or height is not greater than 0, or if x or y
+                is less than 0.
         """
         super().__init__(id)
 
@@ -147,13 +148,27 @@ class Rectangle(Base):
 
     def display(self):
         """
-        Print the Rectangle instance to stdout using the character '#'.
+        Print the Rectangle instance to stdout using the character '#' while
+        taking into account the x and y coordinates.
 
         Example:
-            A rectangle of width 4 and height 3 will be displayed as:
-            ####
-            ####
-            ####
+            A rectangle with width 4, height 3, x 2, and y 1
+            will be displayed as:
+                ####
+                ####
+                ####
         """
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            print("#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
+
+    def __str__(self):
+        """
+        Return a formatted string representation of the Rectangle.
+
+        Returns:
+            str: A formatted string representing the Rectangle.
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
