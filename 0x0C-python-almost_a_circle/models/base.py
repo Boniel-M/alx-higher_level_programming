@@ -51,7 +51,7 @@ class Base:
             list_objs (list): A list of instances to be saved to a file.
 
         Raises:
-            TypeError: If list_objs is not a list of instances derived Base.
+            TypeError: If list_objs is not a list of instances derived
         """
         if list_objs is None:
             list_objs = []
@@ -80,3 +80,22 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create and return an instance with attributes set based on a dictionar
+
+        Args:
+            **dictionary (dict): A dictionary containing attribute values.
+
+        Returns:
+            Base: An instance with attributes set as per the dictionary.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)  # Create a "dummy" Rectangle instance
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)  # Create a "dummy" Square instance
+
+        dummy_instance.update(**dictionary)
+        return dummy_instance
