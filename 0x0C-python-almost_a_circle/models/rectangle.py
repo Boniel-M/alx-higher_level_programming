@@ -153,6 +153,7 @@ class Rectangle(Base):
 
         Example:
             A rectangle with width 4, height 3, x 2, and y 1 will be displayed
+            as:
                 ####
                 ####
                 ####
