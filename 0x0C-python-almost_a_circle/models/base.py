@@ -1,21 +1,25 @@
 #!/usr/bin/python3
-"""Base Module"""
-
-import json  # Import the json module
-
+"""
+Base Module
+"""
 
 import json
 
+
 class Base:
     """
-    Base class represents the base of all other classes in the project.
-    It manages the 'id' attribute in all future classes.
+    Base class for managing id attributes in derived classes.
     """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initializes an instance of the Base class."""
+        """
+        Initializes a Base instance.
+
+        Args:
+            id (int, optional): The ID of the instance (default is None).
+        """
         if id is not None:
             self.id = id
         else:
@@ -25,14 +29,15 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        Returns the JSON string representation of a list of dictionaries.
+        Convert a list of dictionaries to a JSON string.
 
         Args:
-            list_dictionaries (list): A list of dictionaries.
+            list_dictionaries (list): A list of dictionaries to be converted.
 
         Returns:
-            str: The JSON string representation of the list of dictionaries.
+            str: The JSON string representation of list_dictionaries.
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        return json.dumps(list_dictionaries)
+        else:
+            return json.dumps(list_dictionaries)
