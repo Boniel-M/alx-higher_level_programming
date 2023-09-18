@@ -152,8 +152,7 @@ class Rectangle(Base):
         taking into account the x and y coordinates.
 
         Example:
-            A rectangle with width 4, height 3, x 2, and y 1
-            will be displayed as:
+            A rectangle with width 4, height 3, x 2, and y 1 will be displayed
                 ####
                 ####
                 ####
@@ -172,3 +171,25 @@ class Rectangle(Base):
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args, **kwargs):
+        """
+        Update the attributes of the Rectangle instance with provided argument
+        in the following order:
+        1st argument: id attribute
+        2nd argument: width attribute
+        3rd argument: height attribute
+        4th argument: x attribute
+        5th argument: y attribute
+
+        Args:
+            *args: The values to update the attributes with.
+            **kwargs: The key-value pairs to update the attributes with.
+        """
+        if args:
+            arg_names = ['id', 'width', 'height', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, arg_names[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
